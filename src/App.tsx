@@ -10,28 +10,54 @@ import {
   theme,
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import { Route, Routes } from "react-router-dom"
+import Home from "./pages/userPages/home"
+import Login from "./pages/userPages/login"
+import Register from "./pages/userPages/register"
+import Products from "./pages/userPages/products"
+import Product from "./pages/userPages/product"
+import Cart from "./pages/userPages/cart"
+import Purchase from "./pages/userPages/purchase"
+
+import AdminHome from "./pages/adminPanel/home"
+import Inventory from "./pages/adminPanel/inventory"
+import Admin from "./pages/adminPanel/admin"
+import Clients from "./pages/adminPanel/clients"
+import Commandes from "./pages/adminPanel/commandes"
+import Sales from "./pages/adminPanel/sales"
+import Stats from "./pages/adminPanel/stats"
+
 
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Box textAlign="center" fontSize="xl">
       <Grid minH="100vh" p={3}>
+
         <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
+        <Routes>
+          {/*  user routes  */}
+          <Route path='/' element={Home()}/>
+          <Route path='/login' element={Login()}/>
+          <Route path='/register' element={Register()} />
+          <Route path='/products' element={Products()} />
+          <Route path='/product:id' element={Product()} />
+          <Route path='/cart' element={Cart()} />
+          <Route path='/purchase' element={Purchase()} />
+
+
+          <Route path='/admin' element={Admin()} />
+          <Route path='/admin/home' element={AdminHome()} />
+          <Route path='/admin/inventory' element={Inventory()} />
+          <Route path='/admin/inventory' element={Clients()} />
+          <Route path='/admin/commandes' element={Commandes()} />
+          <Route path='/admin/sales' element={Sales()} />
+          <Route path='/admin/stats' element={Stats()} />
+
+
+          {/* protected routes */}
+          
+
+        </Routes>
       </Grid>
     </Box>
   </ChakraProvider>
