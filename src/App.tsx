@@ -31,7 +31,7 @@ import Stats from "./pages/adminPanel/stats"
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
+      <Grid minH="100vh" >
 
         <ColorModeSwitcher justifySelf="flex-end" />
         <Routes>
@@ -46,7 +46,7 @@ export const App = () => (
 
 
           <Route path='/admin' element={Admin()} />
-          <Route path='/admin/home' element={AdminHome()} />
+          <Route path='/admin/welcome' element={AdminHome()} />
           <Route path='/admin/inventory' element={Inventory()} />
           <Route path='/admin/inventory' element={Clients()} />
           <Route path='/admin/commandes' element={Commandes()} />
